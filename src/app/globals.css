@@ -24,3 +24,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Zoom en imágenes de productos */
+@media (hover: hover) {
+  .product-image-zoom:hover {
+    transform: scale(1.25);
+  }
+}
+
+/* Permitir zoom táctil en móvil */
+.product-image-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.product-image-zoom {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Mejorar zoom en móvil con gestos */
+@media (max-width: 640px) {
+  .product-image-zoom {
+    transform-origin: center center;
+  }
+}

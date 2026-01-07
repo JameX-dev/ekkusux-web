@@ -8,18 +8,19 @@ export default function Home() {
       description:
         "Basada en Stranger Things 5, arte Will vs Vecna, tiraje limitado.",
       price: "MXN $599",
-      link: "https://buy.stripe.com/test_7sI5mi3zpa4n8iM5km",
+      link: "https://buy.stripe.com/5kQaEX2wS4xSf6m93Mc3m04",
       tag: "Edición limitada",
-      images: ["/playera1.jpg", "/playera1-b.jpg"],
+      images: ["/playera1.png", "/playera1-b.jpg"],
     },
+
     {
       name: "Playera Stranger Things 5",
       description:
         "Inspirada en la temporada 5, arte oficial, fit cómodo y suave al tacto.",
       price: "MXN $649",
-      link: "https://buy.stripe.com/test_cN2cPCd0F0Jd4DudQT",
+      link: "https://buy.stripe.com/cNi14n1sO0hC3nE0xgc3m05",
       tag: "Edición limitada",
-      images: ["/playera2.jpg", "/playera2-b.jpg"],
+      images: ["/playera2.png", "/playera2-b.jpg"],
     },
   ];
 
@@ -87,37 +88,40 @@ export default function Home() {
             key={product.name}
             className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)] backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:border-white/20 sm:p-6"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/0 opacity-0 transition group-hover:opacity-100" />
-            <div className="flex items-center justify-between">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/0 opacity-0 transition group-hover:opacity-100" />
+            <div className="relative z-10 flex items-center justify-between">
               <span className="rounded-full bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700 px-3 py-1 text-xs font-semibold text-white/90">
                 {product.tag}
               </span>
             </div>
 
-            <div className="relative mt-4 aspect-[3/4] overflow-hidden rounded-xl border border-white/5 bg-neutral-900 sm:aspect-[4/5]">
-              <Image
-                src={product.images[0]}
-                alt={`${product.name} frente`}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 320px, (min-width: 640px) 360px, 100vw"
-                priority
-              />
+            <div className="relative z-10 mt-4 aspect-[3/4] overflow-hidden rounded-xl border border-white/5 bg-neutral-900 sm:aspect-[4/5]">
+              <div className="product-image-container relative h-full w-full cursor-zoom-in overflow-hidden">
+                <Image
+                  src={product.images[0]}
+                  alt={`${product.name} frente`}
+                  fill
+                  className="product-image-zoom object-cover group-hover:scale-125"
+                  style={{ touchAction: "pan-x pan-y pinch-zoom" }}
+                  sizes="(min-width: 1024px) 320px, (min-width: 640px) 360px, 100vw"
+                  priority
+                />
+              </div>
             </div>
 
-            <div className="flex flex-1 flex-col">
+            <div className="relative z-10 flex flex-1 flex-col">
               <h2 className="mt-4 text-lg font-semibold text-white sm:text-xl">
                 {product.name}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-zinc-300">
                 {product.description}
               </p>
-              <div className="mt-auto pt-6">
+              <div className="relative z-10 mt-auto pt-6">
                 <a
                   href={product.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-transparent bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/30 transition hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:text-base"
+                  className="relative z-10 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-transparent bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/30 transition hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:text-base"
                 >
                   Comprar ahora
                   <span className="text-base">→</span>
