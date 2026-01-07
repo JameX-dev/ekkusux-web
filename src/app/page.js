@@ -1,65 +1,197 @@
 import Image from "next/image";
+import { FaTiktok, FaInstagram, FaFacebookF } from "react-icons/fa6";
 
 export default function Home() {
+  const products = [
+    {
+      name: "Playera Stranger Things · Edición limitada",
+      description:
+        "Basada en Stranger Things 5, arte Will vs Vecna, tiraje limitado.",
+      price: "MXN $599",
+      link: "https://buy.stripe.com/test_7sI5mi3zpa4n8iM5km",
+      tag: "Edición limitada",
+      images: ["/playera1.jpg", "/playera1-b.jpg"],
+    },
+    {
+      name: "Playera Stranger Things 5",
+      description:
+        "Inspirada en la temporada 5, arte oficial, fit cómodo y suave al tacto.",
+      price: "MXN $649",
+      link: "https://buy.stripe.com/test_cN2cPCd0F0Jd4DudQT",
+      tag: "Edición limitada",
+      images: ["/playera2.jpg", "/playera2-b.jpg"],
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <div className="min-h-screen bg-neutral-950 text-white">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(99,102,241,0.15),transparent_25%),radial-gradient(circle_at_80%_0%,rgba(236,72,153,0.2),transparent_25%),radial-gradient(circle_at_40%_60%,rgba(16,185,129,0.12),transparent_25%)]" />
+
+      <nav className="sticky top-0 z-20 border-b border-white/10 bg-neutral-950/80 backdrop-blur-lg">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+          <div className="flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-xl">
+              <Image
+                src="/logo-ekkusux.png"
+                alt="Ekkusux logo"
+                fill
+                className="object-contain"
+                sizes="40px"
+                priority
+              />
+            </div>
+            <p className="text-base font-semibold text-white">EKKUSUX</p>
+          </div>
+          <div className="hidden items-center gap-6 text-sm text-zinc-300 md:flex">
+            <a className="hover:text-white" href="#productos">
+              Playeras
+            </a>
+            <a className="hover:text-white" href="#faq">
+              Envíos
+            </a>
+            <a className="hover:text-white" href="#footer">
+              Contacto
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href="#footer"
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/10"
+            >
+              Redes
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <header className="mx-auto flex max-w-5xl flex-col gap-5 px-4 pb-8 pt-16 sm:px-6 sm:pb-10 sm:pt-24">
+        <p className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-200">
+          EKKUSUX · Online store
+        </p>
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl font-semibold leading-tight sm:text-5xl">
+            Playeras de edición limitada.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="max-w-2xl text-base text-zinc-300 sm:text-lg">
+            Exclusivas de la serie Stranger Things. No te quedes sin la tuya.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </header>
+
+      <section
+        id="productos"
+        className="mx-auto grid max-w-5xl gap-5 px-4 pb-12 sm:grid-cols-2 sm:gap-6 sm:px-6 sm:pb-14 lg:grid-cols-3"
+      >
+        {products.map((product) => (
+          <article
+            key={product.name}
+            className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)] backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:border-white/20 sm:p-6"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/0 opacity-0 transition group-hover:opacity-100" />
+            <div className="flex items-center justify-between">
+              <span className="rounded-full bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700 px-3 py-1 text-xs font-semibold text-white/90">
+                {product.tag}
+              </span>
+            </div>
+
+            <div className="relative mt-4 aspect-[3/4] overflow-hidden rounded-xl border border-white/5 bg-neutral-900 sm:aspect-[4/5]">
+              <Image
+                src={product.images[0]}
+                alt={`${product.name} frente`}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 320px, (min-width: 640px) 360px, 100vw"
+                priority
+              />
+            </div>
+
+            <div className="flex flex-1 flex-col">
+              <h2 className="mt-4 text-lg font-semibold text-white sm:text-xl">
+                {product.name}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-300">
+                {product.description}
+              </p>
+              <div className="mt-auto pt-6">
+                <a
+                  href={product.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-transparent bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-700 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-900/30 transition hover:-translate-y-0.5 hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 sm:text-base"
+                >
+                  Comprar ahora
+                  <span className="text-base">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <section
+        id="faq"
+        className="mx-auto grid max-w-5xl gap-4 px-4 pb-12 sm:grid-cols-3 sm:px-6 sm:pb-16"
+      >
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+          <p className="text-sm font-semibold text-white">Pagos protegidos</p>
+          <p className="mt-2 text-sm text-zinc-300">
+          Pagos 100% seguros
+          Tu información está protegida con cifrado de alto nivel. Compra con total tranquilidad.
+          </p>
         </div>
-      </main>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+          <p className="text-sm font-semibold text-white">Envíos rápidos</p>
+          <p className="mt-2 text-sm text-zinc-300">
+          Hacemos envíos a todo México de forma segura y confiable.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+          <p className="text-sm font-semibold text-white">Diseño y Calidad</p>
+          <p className="mt-2 text-sm text-zinc-300">
+          Diseños de edición limitada creados con pasión y enfoque en la calidad.
+          </p>
+        </div>
+      </section>
+
+      <footer id="footer" className="border-t border-white/10 bg-neutral-950/80">
+        <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="flex flex-col gap-1">
+            <p className="text-sm font-semibold text-white">EKKUSUX</p>
+            <p className="text-sm text-zinc-400">
+            Creado con pasión, hecho con calidad.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <a
+              href="https://www.tiktok.com/@3kkusux"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 text-zinc-200 transition hover:border-white/20 hover:bg-white/5"
+            >
+              <FaTiktok className="h-4 w-4" aria-hidden="true" />
+              TikTok
+            </a>
+            <a
+              href="https://www.instagram.com/3kkusux/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 text-zinc-200 transition hover:border-white/20 hover:bg-white/5"
+            >
+              <FaInstagram className="h-4 w-4" aria-hidden="true" />
+              Instagram
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61584171187689"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 text-zinc-200 transition hover:border-white/20 hover:bg-white/5"
+            >
+              <FaFacebookF className="h-4 w-4" aria-hidden="true" />
+              Facebook
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
