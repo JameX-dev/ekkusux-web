@@ -12,9 +12,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Ekkusux Shop",
+  title: "Ekkusux",
   description:
     "Catálogo express con enlaces de pago de Stripe para un checkout rápido.",
+  icons: {
+    icon: [
+      { url: "/logo-ekkusux.png", sizes: "any" },
+      { url: "/logo-ekkusux.png", type: "image/png" },
+    ],
+    shortcut: "/logo-ekkusux.png",
+    apple: "/logo-ekkusux.png",
+  },
 };
 
 export default function RootLayout({ children }) {
